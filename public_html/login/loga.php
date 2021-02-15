@@ -14,7 +14,7 @@
         
         <div class="alinha-form"><input type="text" placeholder="Login" name="login"></div>
         <div class="alinha-form"><input type="password" placeholder="Senha" name="senha"></div>
-        <div class="alinha-form" ><input type="submit" id="button" value="Cadastrar"></div>
+        <div class="alinha-form" ><input type="submit" id="button" value="Login"></div>
     </form>
 </body>
 </html>
