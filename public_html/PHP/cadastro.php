@@ -5,7 +5,7 @@ $login = $_POST['login'];
 $senha = $_POST['senha'];
 
 //insere os dados digitados ao banco de dados
-$insereItens = "INSERT INTO usuarios (email, login, senha) VALUES ('$email', '$login', '$senha')";
+$insereItens = "INSERT INTO usuarios (email, login, senha) VALUES ('$email', '$login', MD5('$senha'))";
  
     if (mysqli_query($connect, $insereItens)) {
         echo "Cadastro efetuado com sucesso!";
