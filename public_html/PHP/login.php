@@ -1,20 +1,29 @@
 <?php 
-session_start();
 require_once('database.php');
+
 
 
 $login = $_POST['login'];
 $senha = $_POST['senha'];
-
 // checa se existe um usuário cadastrado no banco de dados
-$checar = "SELECT login, senha FROM usuarios WHERE login = '$login' AND senha = MD5('$senha') ";
-            $autenticacao = mysqli_query($connect, $checar);
+$hash = "SELECT * FROM usuarios where login = '$login' ";
+$teste = mysqli_query($connect, $hash);
+$fetch = mysqli_fetch_row ($teste);
 
-                    if (mysqli_num_rows($autenticacao) > 0){
-                        echo "usuário encontrado";
-                    }
-                    else {
-                        echo "usuario não encontrado";
+$chave = $fetch['3'];
+
+$autenticaSenha = password_verify($senha , $chave);
+
+if($autenticaSenha) {
+    echo "Usuário autênticado!";
 }
+else echo "Credênciais inválidas, tente novamente";
+
+
+
+
+
+
+
 
 ?>
